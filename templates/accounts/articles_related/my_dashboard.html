@@ -1,0 +1,75 @@
+{% extends 'base_account.html' %}
+
+{% block content %}
+        <div class="row row-sm mg-t-100">
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-info rounded overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center">
+                <i class="fa fa-server tx-60 lh-0 tx-white op-7"></i>
+                <div class="mg-l-20">
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Total Articles</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{total_articles}}</p>
+                  <span class="tx-11 tx-roboto tx-white-8">24% higher yesterday</span>
+                </div>
+              </div>
+              <div id="ch1" class="ht-50 tr-y-1"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+            <div class="bg-purple rounded overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center">
+                <i class="icon ion-compose tx-60 lh-0 tx-white op-7"></i>
+                <div class="mg-l-20">
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Most commented Articles</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">29</p>
+                  <span class="tx-11 tx-roboto tx-white-8">$390,212 before tax</span>
+                </div>
+              </div>
+              <div id="ch3" class="ht-50 tr-y-1"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="bg-teal rounded overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center">
+                <i class="icon ion-heart tx-60 lh-0 tx-white op-7"></i>
+                <div class="mg-l-20">
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Most liked Articles</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">54</p>
+                  <span class="tx-11 tx-roboto tx-white-8">23% average duration</span>
+                </div>
+              </div>
+              <div id="ch2" class="ht-50 tr-y-1"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="bg-primary rounded overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center">
+                <i class="fa fa-eye tx-60 lh-0 tx-white op-7"></i>
+                <div class="mg-l-20">
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Most Viewed Articles</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">32</p>
+                  <span class="tx-11 tx-roboto tx-white-8">65.45% on average time</span>
+                </div>
+              </div>
+              <div id="ch4" class="ht-50 tr-y-1"></div>
+            </div>
+          </div>
+        </div>
+
+   <div class="br-section-wrapper mg-t-50">
+        <h1>Testing   </h1>
+
+
+</div>
+     <div class="br-section-wrapper mg-t-50">
+          <div class="row">
+
+            <div class="col-xl-12 mg-t-20 mg-xl-t-0">
+              <div class="bd pd-l-20 pd-y-30 pd-r-30">
+                <div id="chartBar1" class="ht-200 ht-sm-300"></div>
+              </div>
+            </div>
+          </div><!-- row -->
+
+    </div>
+{% endblock  %}

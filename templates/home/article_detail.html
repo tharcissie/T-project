@@ -1,0 +1,92 @@
+{% extends 'my_base.html' %}
+
+
+{% block content %}
+{% comment %} <style>
+
+.replies{
+    display:none;
+}
+
+</style> {% endcomment %}
+
+
+
+    <div class="row  mg-t-80">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 br-section-wrapper">
+            <h3 class="text-center mt-1"> <b>{{object.subject}}</b></h3>
+            <div class="pd-x-30 mg-t-60">
+                {{object.message|safe}}
+
+           <p class="mg-t-20"> {{ comments.count }} Comment{{ comments|pluralize }}</p>
+
+   
+  
+
+        <h4>Leave a comment</h4>
+        <div class="main-comment-section">
+            <div class="container-fluid mt-2">
+                <div class="form-group row">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+                        <button type="submit" value="Send" class="btn btn-info ">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <h5>Comments :</h5>
+            {% for comment in comments %}
+                <div class="media mg-t-20 mg-b-10">
+                    <img src="{{ comment.user.profile.image.url }}" class="wd-36 rounded-circle mg-r-20" alt="">
+                    <div class="media-body tx-12">
+                      <div class="chat-1">
+                       {{ comment.content }}
+                      </div>
+                     
+                    <footer class="blockquote-footer">commented by : <cite title="Source Title">{{ comment.user.username|capfirst }}</cite>
+                        <span class="chat-time">3:20pm</span>
+                      </div>
+                    </div>
+                    <button onclick="showreplies()" id="reply_btn">reply</button>
+    <!--------------- Section for repling comments -------------->
+    
+                <div class="replied-comments container mt-2 ml-5 replies" id="replied">
+                    {% for reply in comment.replies.all %}
+
+                    <div class="media mg-t-20 mg-b-20">
+                        <img src="{{ comment.user.profile.image.url }}" class="wd-36 rounded-circle mg-r-20" alt="">
+                        <div class="media-body tx-12">
+                        <div class="chat-1">
+                        {{ reply.content }}
+                        </div>
+                        
+                        <footer class="blockquote-footer">replied by : <cite title="Source Title">{{ reply.user.username|capfirst }}</cite>
+                            <span class="chat-time">3:20pm</span>
+                        </div>
+                    </div>
+                       
+                    {% endfor %}
+                    <div class="form-group  row" id="replied">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                            {{ comment_form.as_p }}
+                            {% if user.is_authenticated%}
+                            <input type="submit" value="Reply" class="btn btn-outline-success">
+                            {% else %}
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+               
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+
+    </div>
+{% endblock  %}
